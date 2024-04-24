@@ -17,6 +17,8 @@ public class NoteTaker : MonoBehaviour
     [SerializeField]
     float minPointDistance = 0.01f;
 
+
+
     Vector3 penPosition => new Vector3(penTip.position.x, transform.position.y, penTip.position.z);
 
     public event Action<bool> onNotePadInteraction;//enter = true | exit = false
@@ -58,6 +60,7 @@ public class NoteTaker : MonoBehaviour
                 AddPoint(penPosition);
                 prevPosition = penPosition;
             }
+            yield return null;
         }
 
         yield return null;
