@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class FocusWidget : MonoBehaviour{
+public abstract class FocusWidget : MonoBehaviour{
 
 
-    private void OnEnable()
+    private void Start()
     {
         FocusTransitionManager.Instance.onFocusStart.AddListener(HandleonFocusStart);
         FocusTransitionManager.Instance.onFadeInStart.AddListener(HandleonFadeInStart);

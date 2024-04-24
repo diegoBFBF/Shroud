@@ -6,6 +6,7 @@ using DG.Tweening;
 public class IntentWidget : FocusWidget {
 
     TMP_Text intentText;
+    [SerializeField]
     ObjectAnchors anchors;
     [SerializeField]
     Ease movementEase;
@@ -13,7 +14,7 @@ public class IntentWidget : FocusWidget {
 
     private void Awake()
     {
-        anchors = GetComponent<ObjectAnchors>();
+        
     }
     
     public void SetIntentText(string te){
@@ -23,9 +24,8 @@ public class IntentWidget : FocusWidget {
     override
     public void HandleonFadeInStart(float time)
     {
-        
-        fadeTime = time;
         transform.position = anchors.startPosition;
+        fadeTime = time;
         intentText.DOFade(time,1);
 
     }

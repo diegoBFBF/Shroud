@@ -9,15 +9,22 @@ public class FocusTransitionManager : MonoBehaviour
 {
     public static FocusTransitionManager Instance;
 
-    public UnityEvent onFocusStart;
-    public TimedEvent onFadeInStart;
-    public UnityEvent onFadeInComplete;
-    public TimedEvent onFadeOutStart;
-    public UnityEvent onFadeComplete;
-    public UnityEvent onFocusOutEnd;
+    [HideInInspector] public UnityEvent onFocusStart;
+    [HideInInspector] public TimedEvent onFadeInStart;
+    [HideInInspector] public UnityEvent onFadeInComplete;
+    [HideInInspector] public TimedEvent onFadeOutStart;
+    [HideInInspector] public UnityEvent onFadeComplete;
+    [HideInInspector] public UnityEvent onFocusOutEnd;
 
     public float transitionInTime = 1.5f;
     public float transitionOutTime = 1.5f;
+
+    public float countdownTime = 3f;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -30,8 +37,10 @@ public class FocusTransitionManager : MonoBehaviour
         }
     }
 
+    [ContextMenu("Focus In")]
     public void FocusIn(){
-        onFocusStart.Invoke();   
+        onFocusStart.Invoke(); 
+        Invoke(nameof(StartTransition), countdownTime);
     }
 
     public void StartTransition(){
@@ -44,6 +53,7 @@ public class FocusTransitionManager : MonoBehaviour
         onFadeInComplete.Invoke();
     }
 
+    [ContextMenu("Focus Out")]
     public void FocusOut(){
         onFadeOutStart.Invoke(transitionOutTime);
         Invoke(nameof(HandleTransitionOutEnd), transitionOutTime);
