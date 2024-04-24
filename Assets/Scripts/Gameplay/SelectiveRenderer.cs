@@ -3,16 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(OnwedByPlayer))]
 public class SelectiveRenderer : MonoBehaviour
 {
     
     Renderer[] renderers;
 
-    PlayerManager playerOwner;
+    OnwedByPlayer onwer;
 
     private void Awake()
     {
         renderers = GetComponentsInChildren<Renderer>();
+        onwer = GetComponent<OnwedByPlayer>();
     }
 
     private void OnEnable()
@@ -23,10 +25,10 @@ public class SelectiveRenderer : MonoBehaviour
     }
 
     //TODO: optimize
-    private void UpdateStatus(PlayerManager player)
+    private void UpdateStatus(int playerId)
     {
         foreach(var ren in renderers){
-            ren.enabled = playerOwner != player;
+            ren.enabled = onwer.PlayerId != playerId;
         }
     }
 

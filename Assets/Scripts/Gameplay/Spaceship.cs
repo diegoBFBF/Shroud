@@ -1,18 +1,32 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Spaceship : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    OnwedByPlayer onwer;
+    Health health;
+    [SerializeField]
+    GameObject hitFx;
+    [SerializeField]
+    GameObject dieFx;
+
+    private void Awake()
     {
-        
+        onwer = GetComponent<OnwedByPlayer>();
+        health = GetComponent<Health>();
+        health.OnHit.AddListener(HandleHit);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void HandleHit(){
+        //KYLE TODO: Network instantiate hit FX
+    }
+
+    private void HanldeDestroyed(){
+        GameManager.Instance.HandleShipDestroyed(this);
+        //KYLE TODO: Network instantiate death FX
+        //KYLE TODO: Network destroy This object
+        Destroy(gameObject);//This
     }
 }

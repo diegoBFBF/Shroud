@@ -1,5 +1,5 @@
 using UnityEngine.Events;
 
-public class PlayerEvent : UnityEvent<PlayerManager>{
+public class PlayerEvent : UnityEvent<int>{
 
 }
