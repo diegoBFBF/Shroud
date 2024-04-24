@@ -17,7 +17,11 @@ public class NoteTaker : MonoBehaviour
     [SerializeField]
     float minPointDistance = 0.01f;
 
+    [SerializeField]
+    Transform currentSketchContainer;
 
+    [SerializeField]
+    Transform noteBoardContainer;
 
     Vector3 penPosition => new Vector3(penTip.position.x, transform.position.y, penTip.position.z);
 
@@ -68,7 +72,7 @@ public class NoteTaker : MonoBehaviour
 
     void CreateLine()
     {
-        GameObject newLine = Instantiate(linePrefab);
+        GameObject newLine = Instantiate(linePrefab, currentSketchContainer);
         currentLine = newLine.GetComponent<LineRenderer>();
 
         currentLine.SetPosition(0, penPosition);
@@ -80,5 +84,19 @@ public class NoteTaker : MonoBehaviour
         currentLine.positionCount++;
         int positionIndex = currentLine.positionCount - 1;
         currentLine.SetPosition(positionIndex, point);
+    }
+
+    public void EraseSketch()
+    {
+        foreach(Transform c in currentSketchContainer)
+        {
+            Destroy(c.gameObject);
+        }
+    }
+
+    public void SetPosition(Vector3 newPosition)
+    {
+        transform.parent.position = newPosition;
+        Debug.Log("NoteTaker - SetPosition");
     }
 }
