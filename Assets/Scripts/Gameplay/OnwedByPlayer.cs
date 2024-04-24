@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class OnwedByPlayer : MonoBehaviour{
+public class OwnedByPlayer : MonoBehaviour{
 
     public int PlayerId;
 

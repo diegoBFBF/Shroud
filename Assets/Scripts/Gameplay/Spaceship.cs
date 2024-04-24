@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Spaceship : MonoBehaviour
 {
-    OnwedByPlayer onwer;
+    OwnedByPlayer onwer;
     Health health;
     [SerializeField]
     GameObject hitFx;
@@ -14,7 +14,7 @@ public class Spaceship : MonoBehaviour
 
     private void Awake()
     {
-        onwer = GetComponent<OnwedByPlayer>();
+        onwer = GetComponent<OwnedByPlayer>();
         health = GetComponent<Health>();
         health.OnHit.AddListener(HandleHit);
     }

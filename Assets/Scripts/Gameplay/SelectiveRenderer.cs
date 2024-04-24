@@ -3,18 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(OnwedByPlayer))]
+[RequireComponent(typeof(OwnedByPlayer))]
 public class SelectiveRenderer : MonoBehaviour
 {
     
     Renderer[] renderers;
 
-    OnwedByPlayer onwer;
+    OwnedByPlayer onwer;
 
     private void Awake()
     {
         renderers = GetComponentsInChildren<Renderer>();
-        onwer = GetComponent<OnwedByPlayer>();
+        onwer = GetComponent<OwnedByPlayer>();
     }
 
     private void OnEnable()
