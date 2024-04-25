@@ -43,7 +43,7 @@ Material:
     - _BlobShinyness: 0.2
     - _Blob_Vis: -3.4
     - _NoiseScale: 12.91
-    - _Opacity: 0
+    - _Opacity: 3
     - _VerticalScale: 1
     - _movementSpeedX: 0.01
     - _movementSpeedY: 0.01
