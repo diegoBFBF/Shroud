@@ -111,7 +111,9 @@ public class NoteTaker : MonoBehaviour
     {
         if (currentSketchContainer.childCount <= 0) return;
 
-        Transform newContainer = Instantiate(new GameObject(), currentSketchContainer.position, currentSketchContainer.rotation).transform;
+        Transform newContainer = new GameObject().transform;
+        newContainer.position = currentSketchContainer.position;
+        newContainer.rotation = currentSketchContainer.rotation;
         foreach (Transform c in currentSketchContainer)
         {
             c.SetParent(newContainer);

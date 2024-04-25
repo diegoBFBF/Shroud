@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetupManager : MonoBehaviour
+public class SetupManager : FocusWidget
 {
     IntentionManager intentionManager;
     TimerSetupWidget timerSetupWidget;
@@ -31,4 +31,9 @@ public class SetupManager : MonoBehaviour
         intentionManager.OnIntentionSet -= OnIntentionSet;
     }
 
+
+    public override void HandleonFocusOutEnd()
+    {
+        BeginSetup();
+    }
 }

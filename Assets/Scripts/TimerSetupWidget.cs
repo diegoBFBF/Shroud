@@ -40,10 +40,10 @@ public class TimerSetupWidget : MonoBehaviour
 
     public void AdjustTime(bool increase)
     {
-        if(increase) FocusTransitionManager.Instance.timeLeft += 5;
-        else FocusTransitionManager.Instance.timeLeft -= 5;
+        if(increase) FocusTransitionManager.Instance.timeSet += 5;
+        else FocusTransitionManager.Instance.timeSet -= 5;
 
-        FocusTransitionManager.Instance.timeLeft = Mathf.Clamp(FocusTransitionManager.Instance.timeSet, 5, 30);
+        FocusTransitionManager.Instance.timeSet = Mathf.Clamp(FocusTransitionManager.Instance.timeSet, 5, 30);
 
         timerText.text = FocusTransitionManager.Instance.timeSet.ToString();
     }

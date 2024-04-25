@@ -32,14 +32,15 @@ public class ClockWidget : FocusWidget
         fillImage.fillAmount = Mathf.Lerp(1,0, FocusTransitionManager.Instance.timeLeft / FocusTransitionManager.Instance.timeSet);
     }
 
-    public override void HandleonFadeComplete()
+    public override void HandleonFadeInComplete()
+    
     {
         visualContainer.SetActive(true);
     }
     public override void HandleonFocusOutEnd()
     
     {
-        visualContainer.SetActive(true);
+        visualContainer.SetActive(false);
     }
 
     void EnableVisuals(bool enable)

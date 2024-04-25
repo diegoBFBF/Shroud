@@ -28,6 +28,12 @@ public class IntentionManager : MonoBehaviour
 
     public void BeginIntentionSetup()
     {
+        spokenIntentionText.text = "";
+        if(noteIntentionContainer.childCount > 0)
+        {
+            Destroy(noteIntentionContainer.GetChild(0).gameObject);
+        }
+
         welcomeText.SetActive(true);
         spokenIntentionText.gameObject.SetActive(false);
         noteIntentionContainer.gameObject.SetActive(false);
@@ -48,7 +54,7 @@ public class IntentionManager : MonoBehaviour
     {
         noteIntention.SetParent(noteIntentionContainer);
         noteIntention.localPosition = Vector3.zero;
-        noteIntention.localRotation = Quaternion.identity;
+        noteIntention.rotation = Quaternion.LookRotation(noteIntentionContainer.forward, Vector3.up);
 
         welcomeText.SetActive(false);
         noteIntentionContainer.gameObject.SetActive(true);
