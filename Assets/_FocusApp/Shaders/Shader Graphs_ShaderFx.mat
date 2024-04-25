@@ -40,6 +40,7 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _VerticalScale: 1.28
+    - _NoiseScale: 18.52
+    - _VerticalScale: 3.62
     m_Colors: []
   m_BuildTextureStacks: []
