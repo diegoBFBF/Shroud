@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731722, g: 0.13414752, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2468,7 +2468,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mruk: {fileID: 1819311300}
-  noteTaker: {fileID: 1817804264}
+  workspaceAnchor: {fileID: 1657939358}
+  centerEye: {fileID: 1023959578}
 --- !u!1 &525229175
 GameObject:
   m_ObjectHideFlags: 0
@@ -7766,17 +7767,6 @@ MonoBehaviour:
   blockId: 27673ac1-cdb0-443f-a07d-6ff1d34daeca
   instanceId: f8c86a29-a3b3-40c3-a6e9-33df2b1237a2
   version: 1
---- !u!114 &1817804264 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5258410917979314971, guid: 22246850fd72341cabd35dd9e9a3c2c9, type: 3}
-  m_PrefabInstance: {fileID: 5339831621418175093}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf59c7106f6cff4185f25d445704da9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1819311299
 GameObject:
   m_ObjectHideFlags: 0
