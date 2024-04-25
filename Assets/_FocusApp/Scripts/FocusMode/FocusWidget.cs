@@ -3,7 +3,7 @@ using UnityEngine;
 public abstract class FocusWidget : MonoBehaviour{
 
 
-    protected void Start()
+    public virtual void Start()
     {
         FocusTransitionManager.Instance.onFocusStart.AddListener(HandleonFocusStart);
         FocusTransitionManager.Instance.onFadeInStart.AddListener(HandleonFadeInStart);
