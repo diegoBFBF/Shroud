@@ -101,11 +101,6 @@ public class NoteTaker : MonoBehaviour
         }
     }
 
-    public void SetPosition(Vector3 newPosition)
-    {
-        transform.parent.parent.position = newPosition;
-        Debug.Log("NoteTaker - SetPosition");
-    }
 
     public void ConfirmNote()
     {
