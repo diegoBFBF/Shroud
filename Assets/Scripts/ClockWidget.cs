@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class ClockWidget : FocusWidget
 {
     [SerializeField]
-    TextMeshProUGUI timerText;
+    TextMeshProUGUI[] timerTexts;
 
     [SerializeField]
     Image fillImage;
@@ -27,7 +27,10 @@ public class ClockWidget : FocusWidget
         float seconds = FocusTransitionManager.Instance.timeLeft;
         TimeSpan timeSpan = TimeSpan.FromSeconds(seconds);
         string timer = timeSpan.ToString("mm\\:ss");
-        timerText.text = timer;
+        foreach(var t in timerTexts){
+            t.text = timer;
+        }
+        
 
         fillImage.fillAmount = Mathf.Lerp(1,0, FocusTransitionManager.Instance.timeLeft / FocusTransitionManager.Instance.timeSet);
     }
