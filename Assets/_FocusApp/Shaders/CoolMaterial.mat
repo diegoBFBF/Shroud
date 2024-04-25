@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_ShaderFx
+  m_Name: CoolMaterial
   m_Shader: {fileID: -6465566751694194690, guid: 6763ffff72a4d49aeaa52c5de2990a67, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -40,7 +40,14 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _NoiseScale: 18.52
-    - _VerticalScale: 3.62
-    m_Colors: []
+    - _BlobShinyness: 0.2
+    - _Blob_Vis: -3.4
+    - _NoiseScale: 12.91
+    - _Opacity: 0.03
+    - _VerticalScale: 1
+    - _movementSpeedX: 0.01
+    - _movementSpeedY: 0.01
+    m_Colors:
+    - _Color: {r: 0.90588236, g: 0.82309914, b: 0.7647059, a: 1}
+    - _Color_1: {r: 0.6226415, g: 0.3236602, b: 0.16740832, a: 1}
   m_BuildTextureStacks: []
