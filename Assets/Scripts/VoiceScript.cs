@@ -13,6 +13,8 @@ public class VoiceScript : MonoBehaviour
     public AppDictationExperience dictationExperience;
 
     public AppVoiceExperience voiceExperience;
+
+    public string lastRecording;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +26,28 @@ public class VoiceScript : MonoBehaviour
     {
         if (OVRInput.GetDown(OVRInput.Button.One))
         {
-            dictationExperience.Activate();
+            OpenDictationMic();
         }
         else if (OVRInput.GetUp(OVRInput.Button.One))
         {
-            dictationExperience.Deactivate();
+            CloseDictationMic();
             Invoke("ResetText", 3);
         }
+    }
+
+    public void OpenDictationMic()
+    {
+        dictationExperience.Activate();
+    }
+
+    public void CloseDictationMic()
+    {
+        dictationExperience.Deactivate();
+    }
+
+    public void SetLastRecording(string rec)
+    {
+        lastRecording = rec;
     }
 
 
