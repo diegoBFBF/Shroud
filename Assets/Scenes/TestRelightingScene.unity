@@ -10736,9 +10736,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 429845799}
     m_Modifications:
+    - target: {fileID: 113060209543445839, guid: 2413f064f8b6030479e31ffae8eed274, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 645346053925412664, guid: 2413f064f8b6030479e31ffae8eed274, type: 3}
       propertyPath: m_Name
       value: Intention Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4404571341367975821, guid: 2413f064f8b6030479e31ffae8eed274, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 5660332500580570939, guid: 2413f064f8b6030479e31ffae8eed274, type: 3}
       propertyPath: m_Pivot.x

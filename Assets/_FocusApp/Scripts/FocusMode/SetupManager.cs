@@ -14,13 +14,15 @@ public class SetupManager : FocusWidget
     }
 
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         BeginSetup();
     }
 
     void BeginSetup()
     {
+        Debug.Log("Begin Intention Setup");
         intentionManager.BeginIntentionSetup();
         intentionManager.OnIntentionSet += OnIntentionSet;
     }
@@ -30,7 +32,6 @@ public class SetupManager : FocusWidget
         timerSetupWidget.BeginTimerSetup();
         intentionManager.OnIntentionSet -= OnIntentionSet;
     }
-
 
     public override void HandleonFocusOutEnd()
     {
