@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
@@ -35,5 +36,25 @@ public class BGsoundWidget :  FocusWidget{
     {
         source.Stop();
     }
+
+}
+
+public class TodoList : MonoBehaviour{
+
+    public List<ListItem> listItems;
+}
+
+public class ListItem : MonoBehaviour{
+
+    // virtual
+    // public 
+
+}
+
+public class RecordingListItem : ListItem{
+
+}
+
+public class TextListItem : ListItem{
 
 }
