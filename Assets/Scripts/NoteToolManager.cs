@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NoteToolManager : MonoBehaviour
 {
+    public static NoteToolManager Instance;
+
     enum ToolType { None, Pen, Mic }
 
     [SerializeField]
@@ -23,6 +25,11 @@ public class NoteToolManager : MonoBehaviour
 
     [SerializeField]
     float activeDistance = 0.3f;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -74,5 +81,26 @@ public class NoteToolManager : MonoBehaviour
             case ToolType.Pen: pen.SetActive(true); break;
             case ToolType.Mic: mic.SetActive(true); break;
         }
+    }
+
+    public void SpokenNoteCreated(string newNote)
+    {
+        if (!IntentionManager.Instance.intentionSet)
+        {
+            IntentionManager.Instance.SetSpokenIntention(newNote);
+            return;
+        }
+        //add to note board
+    }
+
+    public void SketchNoteCreated(Transform newSketch)
+    {
+        if (!IntentionManager.Instance.intentionSet)
+        {
+            IntentionManager.Instance.SetNoteIntention(newSketch);
+            return;
+        }
+        //add to note board
+
     }
 }

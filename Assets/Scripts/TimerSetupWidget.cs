@@ -13,6 +13,11 @@ public class TimerSetupWidget : MonoBehaviour
     TextMeshProUGUI timerText;
 
 
+    private void Awake()
+    {
+        EnableVisuals(false);
+    }
+
     private void Start()
     {
         timerText.text = FocusTransitionManager.Instance.timeSet.ToString();
@@ -28,18 +33,18 @@ public class TimerSetupWidget : MonoBehaviour
         FocusTransitionManager.Instance.FocusIn();
     }
 
-    void EnableVisuals(bool enable)
+    public void EnableVisuals(bool enable)
     {
         enableContainter.SetActive(enable);
     }
 
     public void AdjustTime(bool increase)
     {
-        if(increase) FocusTransitionManager.Instance.timeLeft += 5;
-        else FocusTransitionManager.Instance.timeLeft -= 5;
+        if(increase) FocusTransitionManager.Instance.timeSet += 5;
+        else FocusTransitionManager.Instance.timeSet -= 5;
 
-        FocusTransitionManager.Instance.timeLeft = Mathf.Clamp(FocusTransitionManager.Instance.timeSet, 5, 30);
+        FocusTransitionManager.Instance.timeSet = Mathf.Clamp(FocusTransitionManager.Instance.timeSet, 5, 30);
 
-        timerText.text = FocusTransitionManager.Instance.timeLeft.ToString();
+        timerText.text = FocusTransitionManager.Instance.timeSet.ToString();
     }
 }

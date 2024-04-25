@@ -47,7 +47,10 @@ public class VoiceScript : MonoBehaviour
 
     public void SetLastRecording(string rec)
     {
+        text.text = rec;
         lastRecording = rec;
+
+        NoteToolManager.Instance.SpokenNoteCreated(rec);
     }
 
 

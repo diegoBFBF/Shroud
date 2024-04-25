@@ -107,6 +107,21 @@ public class NoteTaker : MonoBehaviour
         Debug.Log("NoteTaker - SetPosition");
     }
 
+    public void ConfirmNote()
+    {
+        if (currentSketchContainer.childCount <= 0) return;
+
+        Transform newContainer = new GameObject().transform;
+        newContainer.position = currentSketchContainer.position;
+        newContainer.rotation = currentSketchContainer.rotation;
+        foreach (Transform c in currentSketchContainer)
+        {
+            c.SetParent(newContainer);
+        }
+
+        NoteToolManager.Instance.SketchNoteCreated(newContainer);
+    }
+
     Vector3 penPosition() 
     { 
         Vector3 newPos = transform.InverseTransformPoint(penTip.position);
