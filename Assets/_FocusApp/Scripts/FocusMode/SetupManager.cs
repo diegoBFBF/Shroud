@@ -7,6 +7,12 @@ public class SetupManager : MonoBehaviour
     IntentionManager intentionManager;
     TimerSetupWidget timerSetupWidget;
 
+    private void Awake()
+    {
+        intentionManager = GetComponent<IntentionManager>();
+        timerSetupWidget = GetComponent<TimerSetupWidget>();
+    }
+
 
     private void Start()
     {
