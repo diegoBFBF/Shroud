@@ -24,8 +24,6 @@ public class NoteTaker : MonoBehaviour
     [SerializeField]
     Transform noteBoardContainer;
 
-    Vector3 penPosition => new Vector3(penTip.position.x, transform.position.y, penTip.position.z);
-
     public event Action<bool> onNotePadInteraction;//enter = true | exit = false
 
     IEnumerator drawRoutine;
@@ -58,13 +56,13 @@ public class NoteTaker : MonoBehaviour
     {
         CreateLine();
         bool drawing = true;
-        Vector3 prevPosition = penPosition;
+        Vector3 prevPosition = penPosition();
         while (drawing)
         {
-            if(Vector3.Distance(prevPosition, penPosition) > minPointDistance)
+            if(Vector3.Distance(prevPosition, penPosition()) > minPointDistance)
             {
-                AddPoint(penPosition);
-                prevPosition = penPosition;
+                AddPoint(penPosition());
+                prevPosition = penPosition();
             }
 
             if (Mathf.Abs(transform.position.y - penTip.position.y) > 0.03)
@@ -84,8 +82,8 @@ public class NoteTaker : MonoBehaviour
         GameObject newLine = Instantiate(linePrefab, currentSketchContainer);
         currentLine = newLine.GetComponent<LineRenderer>();
 
-        currentLine.SetPosition(0, penPosition);
-        currentLine.SetPosition(1, penPosition);
+        currentLine.SetPosition(0, penPosition());
+        currentLine.SetPosition(1, penPosition());
     }
 
     void AddPoint(Vector3 point)
@@ -105,7 +103,14 @@ public class NoteTaker : MonoBehaviour
 
     public void SetPosition(Vector3 newPosition)
     {
-        transform.parent.position = newPosition;
+        transform.parent.parent.position = newPosition;
         Debug.Log("NoteTaker - SetPosition");
+    }
+
+    Vector3 penPosition() 
+    { 
+        Vector3 newPos = transform.InverseTransformPoint(penTip.position);
+        newPos = new Vector3(newPos.x, 0, newPos.z);
+        return newPos;
     }
 }
