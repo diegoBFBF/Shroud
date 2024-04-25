@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class TimerSetupWidget : MonoBehaviour
@@ -17,9 +18,14 @@ public class TimerSetupWidget : MonoBehaviour
         timerText.text = FocusTransitionManager.Instance.timeSet.ToString();
     }
     
-    void BeginTimerSetup()
+    public void BeginTimerSetup()
     {
-        EnableVisuals
+        EnableVisuals(true);
+    }
+
+    public void EndTimerSetup()
+    {
+        FocusTransitionManager.Instance.FocusIn();
     }
 
     void EnableVisuals(bool enable)

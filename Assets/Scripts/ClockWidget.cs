@@ -19,7 +19,7 @@ public class ClockWidget : FocusWidget
 
     private void Awake()
     {
-        //EnableVisuals(false);
+        EnableVisuals(false);
     }
 
     private void Update()
@@ -33,6 +33,11 @@ public class ClockWidget : FocusWidget
     }
 
     public override void HandleonFadeComplete()
+    {
+        visualContainer.SetActive(true);
+    }
+    public override void HandleonFocusOutEnd()
+    
     {
         visualContainer.SetActive(true);
     }
