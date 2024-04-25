@@ -11,12 +11,12 @@ public class DynamicBackgroundWidget : FocusWidget{
 
     override
     public void HandleonFadeInStart(float time){
-        targetMaterial.DOFloat(height, "_Opacity", time).SetEase(fadeInEase);
+        targetMaterial.DOFloat(0, "_Opacity", time).SetEase(fadeInEase);
     }
 
     override
     public void HandleonFadeOutStart(float time){
-        targetMaterial.DOFloat(0, "_Opacity", time).SetEase(fadeInEase);
+        targetMaterial.DOFloat(height, "_Opacity", time).SetEase(fadeInEase);
 
     }
 
