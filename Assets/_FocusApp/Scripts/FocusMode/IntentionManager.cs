@@ -6,7 +6,9 @@ using UnityEngine;
 
 public class IntentionManager : MonoBehaviour
 {
-    bool intentionSet;
+    public static IntentionManager Instance;
+
+    public bool intentionSet;
 
     [SerializeField]
     GameObject welcomeText;
@@ -18,7 +20,12 @@ public class IntentionManager : MonoBehaviour
     Transform noteIntentionContainer;
 
     public event Action<bool> OnIntentionSet;
-    
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     public void BeginIntentionSetup()
     {
         welcomeText.SetActive(true);

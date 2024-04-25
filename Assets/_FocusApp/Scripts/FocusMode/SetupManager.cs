@@ -7,6 +7,12 @@ public class SetupManager : MonoBehaviour
     IntentionManager intentionManager;
     TimerSetupWidget timerSetupWidget;
 
+
+    private void Start()
+    {
+        BeginSetup();
+    }
+
     void BeginSetup()
     {
         intentionManager.BeginIntentionSetup();
@@ -15,7 +21,8 @@ public class SetupManager : MonoBehaviour
 
     void OnIntentionSet(bool set)
     {
-        //timerSetupWidget.
+        timerSetupWidget.BeginTimerSetup();
+        intentionManager.OnIntentionSet -= OnIntentionSet;
     }
 
 }
