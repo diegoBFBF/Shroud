@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -42,8 +43,9 @@ public class NoteTaker : MonoBehaviour
     {
         if (other.CompareTag("Pen"))
         {
-            onNotePadInteraction?.Invoke(false);
             StopCoroutine(drawRoutine);
+            onNotePadInteraction?.Invoke(false);
+            drawRoutine = null;
         }
     }
 
@@ -63,6 +65,13 @@ public class NoteTaker : MonoBehaviour
             {
                 AddPoint(penPosition);
                 prevPosition = penPosition;
+            }
+
+            if (Mathf.Abs(transform.position.y - penTip.position.y) > 0.03)
+            {
+                onNotePadInteraction?.Invoke(false);
+                drawRoutine = null;
+                yield break;
             }
             yield return null;
         }
