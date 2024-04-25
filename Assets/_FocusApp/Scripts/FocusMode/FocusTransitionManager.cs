@@ -21,6 +21,8 @@ public class FocusTransitionManager : MonoBehaviour
 
     public float countdownTime = 3f;
 
+    public float timeSet = 25;
+    public float timeLeft;
     private void Awake()
     {
         Instance = this;
@@ -51,6 +53,7 @@ public class FocusTransitionManager : MonoBehaviour
     private void HandleTransitionEnd()
     {
         onFadeInComplete.Invoke();
+        StartCountDown();
     }
 
     [ContextMenu("Focus Out")]
@@ -63,6 +66,23 @@ public class FocusTransitionManager : MonoBehaviour
     {
         onFadeComplete.Invoke();
         onFocusOutEnd.Invoke();
+    }
+
+    public void StartCountDown()
+    {
+        StartCoroutine(TimerRoutine());
+    }
+
+    IEnumerator TimerRoutine()
+    {
+        timeLeft = timeSet;
+        while(timeLeft > 0)
+        {
+            timeLeft -= Time.deltaTime;
+            yield return null;
+        }
+        FocusOut();
+        yield return null;
     }
 }
 
