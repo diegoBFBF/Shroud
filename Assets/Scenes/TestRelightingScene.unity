@@ -1676,6 +1676,7 @@ MonoBehaviour:
   text: {fileID: 1845215585}
   dictationExperience: {fileID: 1492145452}
   voiceExperience: {fileID: 1683470752}
+  lastRecording: 
 --- !u!1 &1387924596
 GameObject:
   m_ObjectHideFlags: 0
@@ -2012,9 +2013,9 @@ MonoBehaviour:
     _onFullTranscription:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1845215585}
-          m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-          m_MethodName: set_text
+        - m_Target: {fileID: 1345670479}
+          m_TargetAssemblyTypeName: VoiceScript, Assembly-CSharp
+          m_MethodName: SetLastRecording
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
