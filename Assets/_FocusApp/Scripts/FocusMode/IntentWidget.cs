@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class IntentWidget : FocusWidget {
 
+    [SerializeField]
     TMP_Text intentText;
     [SerializeField]
     ObjectAnchors anchors;
