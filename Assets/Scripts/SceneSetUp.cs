@@ -12,7 +12,7 @@ public class SceneSetUp : MonoBehaviour
     MRUK mruk;
 
     [SerializeField]
-    NoteTaker noteTaker;
+    Transform workspaceAnchor;
 
 
     private void Awake()
@@ -27,6 +27,8 @@ public class SceneSetUp : MonoBehaviour
         var anchor = room.Anchors.Find(t => t.AnchorLabels.Contains(OVRSceneManager.Classification.Table));
         Vector3 newPosition = anchor.transform.position;
 
-        noteTaker.SetPosition(newPosition);
+        workspaceAnchor.position = (newPosition);
+
+        //workspaceAnchor.rotation = 
     }
 }
