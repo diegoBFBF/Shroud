@@ -5,15 +5,24 @@ using UnityEngine;
 public class BGsoundWidget :  FocusWidget{
 
     AudioSource source;
-    AudioClip clip;
+
+    [SerializeField]
+    List<AudioClip> clips= new List<AudioClip>();
 
     private void Awake()
     {
         source = GetComponent<AudioSource>();
     }
 
+    public void SwitchAudioClip(int i)
+    {
+        Debug.Log($"Switched sound clip to {i}");
+        SetSound(clips[i]);
+        source.Play();
+    }
+
     public void SetSound(AudioClip clip){
-        this.clip = clip;
+       source.clip = clip;
     }
 
     override

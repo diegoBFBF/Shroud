@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class NoteToolManager : MonoBehaviour
@@ -22,6 +23,12 @@ public class NoteToolManager : MonoBehaviour
     Transform notePadTransform;
     [SerializeField]
     Transform headTransform;
+
+    [SerializeField]
+    Transform noteArea;
+
+    [SerializeField]
+    GameObject spokenNotePrefab;
 
     [SerializeField]
     float activeDistance = 0.3f;
@@ -91,6 +98,13 @@ public class NoteToolManager : MonoBehaviour
             return;
         }
         //add to note board
+
+        Transform newSketch = Instantiate(spokenNotePrefab).transform;
+        newSketch.GetComponentInChildren<TextMeshProUGUI>().text = newNote;
+
+        newSketch.position = noteArea.position + (Random.insideUnitSphere / 1.5f);
+        newSketch.rotation = Quaternion.LookRotation(newSketch.transform.position - headTransform.position);
+        newSketch.SetParent(noteArea);
     }
 
     public void SketchNoteCreated(Transform newSketch)
@@ -101,6 +115,8 @@ public class NoteToolManager : MonoBehaviour
             return;
         }
         //add to note board
-
+        newSketch.position = noteArea.position + (Random.insideUnitSphere / 1.5f);
+        newSketch.rotation = Quaternion.LookRotation(headTransform.position - newSketch.transform.position);
+        newSketch.SetParent(noteArea);
     }
 }
