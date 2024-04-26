@@ -65,9 +65,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Welcome
+  m_text: 'What do you want to focus on?
 
-    What do you want to focus on?
 
     Speak or write your intention'
   m_isRightToLeft: 0
