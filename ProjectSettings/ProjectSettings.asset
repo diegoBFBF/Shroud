@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: BuffaloBuffalo
-  productName: Hackathon
+  productName: Shroud
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -139,9 +139,12 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 0.1
+  bundleVersion: 1.0
   preloadedAssets:
   - {fileID: 11400000, guid: 7797345194eaa43e09fcde297205c899, type: 2}
+  - {fileID: -5443036742546994667, guid: a23300fbe7f994ddc9ec0da9a513cbff, type: 2}
+  - {fileID: 11400000, guid: 7ed8cbaf667a843308e8841345c491fe, type: 2}
+  - {fileID: 11400000, guid: 13cf753e6c2d54e20987f14bec441b6e, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -162,7 +165,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.BuffaloBuffalo.Hackathon
+    Android: com.BuffaloBuffalo.Shroud
     Standalone: com.BuffaloBuffalo.Hackathon
   buildNumber:
     Standalone: 0
