@@ -30,7 +30,7 @@ public class StarGrabber : MonoBehaviour
 
         //ovr grab
 
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger) || OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))
         {
             Debug.Log("Gripped");
             GrabStar();
@@ -79,7 +79,7 @@ public class StarGrabber : MonoBehaviour
     {
         if (inReach.Count <= 0) return;
 
-        if (other.gameObject.layer == 10)
+        if (other.gameObject.layer == 5)
         {
             if (other.TryGetComponent(out WheelStar newPerkStar))
             {
@@ -131,7 +131,7 @@ public class StarGrabber : MonoBehaviour
         bool holding = true;
         while (holding)
         {
-            if(OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger)) { holding = false; break; }
+            if(OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger) || OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger)) { holding = false; break; }
 
             if ((Object)currentStar == null) { currentHold = null; yield break; }
 
@@ -141,7 +141,6 @@ public class StarGrabber : MonoBehaviour
 
         if ((Object)currentStar == null) { currentHold = null; yield break; }
 
-        
         currentStar.StarReleased();
         currentStar.StarSelected();
 

@@ -50,7 +50,7 @@ public class WheelStar : MonoBehaviour
         optionContainer.localScale = Vector3.zero;
         SetStarState(StarState.Locked);
 
-        textController.SetTitleText("");
+        //textController.SetTitleText("");
 
         ChangeOptionTitle("");
     }

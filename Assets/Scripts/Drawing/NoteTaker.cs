@@ -1,10 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
-
 public class NoteTaker : MonoBehaviour
 {
     [SerializeField]
@@ -21,8 +17,9 @@ public class NoteTaker : MonoBehaviour
     [SerializeField]
     Transform currentSketchContainer;
 
+
     [SerializeField]
-    Transform noteBoardContainer;
+    GameObject notePrefab;
 
     public event Action<bool> onNotePadInteraction;//enter = true | exit = false
 
@@ -106,15 +103,18 @@ public class NoteTaker : MonoBehaviour
     {
         if (currentSketchContainer.childCount <= 0) return;
 
-        Transform newContainer = new GameObject().transform;
+        Transform newContainer = Instantiate(notePrefab).transform;
+        newContainer.gameObject.name = "new note";
         newContainer.position = currentSketchContainer.position;
         newContainer.rotation = currentSketchContainer.rotation;
         foreach (Transform c in currentSketchContainer)
         {
+            if (c == currentSketchContainer) continue;
             c.SetParent(newContainer);
         }
 
         NoteToolManager.Instance.SketchNoteCreated(newContainer);
+
     }
 
     Vector3 penPosition() 
